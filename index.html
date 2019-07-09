@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
   <head>
     <link rel="shortcut icon" href="img/pencil_32x32.png" type="image/png">
     <title>Настроение</title>
@@ -77,12 +77,11 @@
       <br>
       <div id="js-signature" class="signature"></div>
     </blockquote>
-
+    <script>
+      var quotes = JSON.parse(document.getElementById('quotes_json').innerHTML)
+      var quote = quotes[Math.floor(Math.random() * quotes.length)]
+      document.getElementById("js-phrase").innerHTML = quote['phrase']
+      document.getElementById('js-signature').innerHTML = "&copy; " + quote['signature']
+    </script>
   </body>
-  <script type="text/javascript">
-    var quotes = JSON.parse(document.getElementById('quotes_json').innerHTML)
-    var quote = quotes[Math.floor(Math.random() * quotes.length)]
-    document.getElementById("js-phrase").innerHTML = quote['phrase']
-    document.getElementById('js-signature').innerHTML = "&copy; " + quote['signature']
-  </script>
 </html>
