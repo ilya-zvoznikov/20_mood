@@ -1,25 +1,87 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Настроение</title>
-  <script id="quotes_json" type="application/json">
-    [
-      {
-        "phrase": "Кукурузные хлопья - теперь без асбеста!",
-        "signature": "©Неизвестный маркетолог"
-      },
-      {
-        "phrase": "Собираюсь жить вечно, пока всё идёт нормально"
-      },
-      {
-        "phrase": "Вывеска над кафе — '\u003cМы открылись\u003e'. Что-то не так. Где же '\u003c/Мы открылись\u003e'?"
-      },
-      {
-        "phrase": "Если ты будешь усердно работать по 8 часов в день, то обязательно станешь боссом и начнешь работать по 12"
+  <head>
+    <title>Настроение</title>
+    <style media="screen">
+      body {
+        background: url("img/white-wood.jpg");
       }
-    ]
+      blockquote {
+        background-color: white;
+        color: black;
+        border: double;
+        width: 70%;
+        margin: 100px auto auto;
+        padding: 25px 100px;
+        box-sizing: border-box;
+        font-size: 150%;
+        font-family: "Georgia";
+        font-style: italic;
+      }
+      .phrase {
+        text-align: left;
+      }
+      .signature {
+        text-align: right;
+      }
+    </style>
+    <script id="quotes_json" type="application/json">
+      [
+        {
+          "phrase": "Всякая работа трудна до времени, пока ее не полюбишь, а потом она возбуждает и становится легче.",
+          "signature": "Максим Горький"
+        }, {
+          "phrase": "Выбери профессию, которую ты любишь, — и тебе не придется работать ни дня в твоей жизни.",
+          "signature": "Конфуций"
+        }, {
+          "phrase": "Гениальность может оказаться лишь мимолетным шансом. Только работа и воля могут дать ей жизнь и обратить ее в славу.",
+          "signature": "Альберт Камю"
+        }, {
+          "phrase": "Жить — значит работать. Труд есть жизнь человека.",
+          "signature": "Вольтер"
+        }, {
+          "phrase": "Постарайтесь получить то, что любите, иначе придется полюбить то, что получили.",
+          "signature": "Бернард Шоу"
+        }, {
+          "phrase": "Работа, которую мы делаем охотно, исцеляет боли.",
+          "signature": "Уильям Шекспир"
+        }, {
+          "phrase": "Делай что можешь, с тем, что у тебя есть, там, где ты находишься.",
+          "signature": "Теодор Рузвельт"
+        }, {
+          "phrase": "Всегда помните о том, что ваша решимость преуспеть важнее всего остального.",
+          "signature": "Авраам Линкольн"
+        }, {
+          "phrase": "Кто хочет – ищет возможности. Кто не хочет – ищет причины.",
+          "signature": "Сократ"
+        }, {
+          "phrase": "Любовь и работа - единственные стоящие вещи в жизни. Работа - это своеобразная форма любви.",
+          "signature": "Мэрилин Монро"
+        }, {
+          "phrase": "Есть только один вид работы, который не вызывает депрессии, — это работа, которую ты не обязан делать.",
+          "signature": "Жорж Элгози"
+        }, {
+          "phrase": "Я твердо верю в удачу, и я заметил: чем больше я работаю, тем я удачливее.",
+          "signature": "Томас Джефферсон"
+        }, {
+          "phrase": "Вдохновение приходит только во время работы.",
+          "signature": "Габриэль Маркес"
+        }
+      ]
+    </script>
+  </head>
+  <body>
+    <blockquote>
+      <div id="js-phrase" class="phrase"></div>
+      <br>
+      <div id="js-signature" class="signature"></div>
+    </blockquote>
+
+  </body>
+  <script type="text/javascript">
+    var quotes = JSON.parse(document.getElementById('quotes_json').innerHTML)
+    var quote = quotes[Math.floor(Math.random() * quotes.length)]
+    document.getElementById("js-phrase").innerHTML = quote['phrase']
+    document.getElementById('js-signature').innerHTML = "&copy; " + quote['signature']
   </script>
-</head>
-<body>
-</body>
 </html>
